@@ -79,8 +79,6 @@ namespace BigIntNS {
 
         size_t size() const;
 
-        static const int ASCII_ZERO = 48;
-
         std::string getNumber();
 
         static const BigInt *maxBinLen(BigInt *first, const BigInt &second);
