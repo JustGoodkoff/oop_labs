@@ -6,11 +6,14 @@
 
 
 namespace BigIntNS {
+
+    const int ASCII_ZERO = 48;
+
     class BigInt {
     private:
         bool isNeg;
         std::string number;
-        const int ASCII_ZERO = 48;
+
 
 
     public:
@@ -75,6 +78,8 @@ namespace BigIntNS {
         explicit operator std::string() const;
 
         size_t size() const;
+
+        static const int ASCII_ZERO = 48;
 
         std::string getNumber();
 

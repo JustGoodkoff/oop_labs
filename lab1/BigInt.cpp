@@ -429,7 +429,7 @@ namespace BigIntNS {
         } else {
             for (int i = 0; i < str.size(); i++) {
                 decadeNotation +=
-                        BigInt(str[i] - /*ASCII_ZERO*/ 48) * BigIntNS::pow(BigInt(2), BigInt(str.size() - i - 1));
+                        BigInt(str[i] - ASCII_ZERO) * BigIntNS::pow(BigInt(2), BigInt(str.size() - i - 1));
             }
         }
         return std::string(decadeNotation);
