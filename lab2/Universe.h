@@ -12,6 +12,7 @@
 #include <set>
 
 
+namespace GameOfLife {
 
     class Universe {
     public:
@@ -70,6 +71,6 @@
 
 
     };
-
+}
 
 #endif //LIFE_UNIVERSE_H

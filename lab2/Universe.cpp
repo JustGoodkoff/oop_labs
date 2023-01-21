@@ -4,6 +4,7 @@
 
 #include "Universe.h"
 
+namespace GameOfLife {
 
     const std::string &Universe::getUniverseName() const {
         return universeName;
@@ -75,5 +76,5 @@
         Universe::iterations = iterations;
     }
 
-
+}
 

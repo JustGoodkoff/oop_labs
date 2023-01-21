@@ -7,11 +7,15 @@
 
 #include "../Game.h"
 
-static const std::string kDone = "done!\n";
+namespace GameOfLife {
 
-class OfflineGameMode: Game {
-public:
-    static void startOfflineMode (Universe *universe);
-};
+    static const std::string kDone = "done!\n";
+
+    class OfflineGameMode : Game {
+    public:
+        static void startOfflineMode(Universe *universe);
+    };
 
 #endif //LIFE_OFFLINEGAMEMODE_H
+
+}

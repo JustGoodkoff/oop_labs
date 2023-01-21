@@ -8,22 +8,26 @@
 
 #include "Universe.h"
 
-static const std::string kOfflineMode = "offline";
-static const std::string kOnlineMode = "online";
-static const std::string kChooseMode = "Choose mode (online/offline)";
-static const std::string kAliveCellOut = "0 ";
-static const std::string kDeadCellOut = ". ";
+namespace GameOfLife {
 
-class GameInterface {
+    static const std::string kOfflineMode = "offline";
+    static const std::string kOnlineMode = "online";
+    static const std::string kChooseMode = "Choose mode (online/offline)";
+    static const std::string kAliveCellOut = "0 ";
+    static const std::string kDeadCellOut = ". ";
 
-public:
-    GameInterface();
-    static void startGame(int argc, char** argv);
-    static void print_universe(Universe universe);
+    class GameInterface {
 
-private:
-    static std::string chooseGameMode();
-};
+    public:
+        GameInterface();
 
+        static void startGame(int argc, char **argv);
+
+        static void print_universe(Universe universe);
+
+    private:
+        static std::string chooseGameMode();
+    };
+}
 
 #endif //LIFE_GAMEINTERFACE_H

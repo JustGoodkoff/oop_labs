@@ -5,10 +5,14 @@
 #include <iostream>
 #include "OfflineGameMode.h"
 
-void OfflineGameMode::startOfflineMode(Universe *universe) {
-    for (int i = 0; i < universe->getIterations(); i++) {
-        nextStep(universe);
+namespace GameOfLife {
+
+    void OfflineGameMode::startOfflineMode(Universe *universe) {
+        for (int i = 0; i < universe->getIterations(); i++) {
+            nextStep(universe);
+        }
+        dump(universe);
+        std::cout << kDone;
     }
-    dump(universe);
-    std::cout << kDone;
+
 }

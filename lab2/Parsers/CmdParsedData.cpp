@@ -4,27 +4,28 @@
 
 #include "CmdParsedData.h"
 
+namespace GameOfLife {
+    const std::string &CmdParsedData::getInputFilename() const {
+        return inputFilename;
+    }
 
-const std::string &CmdParsedData::getInputFilename() const {
-    return inputFilename;
-}
+    void CmdParsedData::setInputFilename(const std::string &inputFilename) {
+        this->inputFilename = inputFilename;
+    }
 
-void CmdParsedData::setInputFilename(const std::string &inputFilename) {
-    this->inputFilename = inputFilename;
-}
+    const std::string &CmdParsedData::getOutputFilename() const {
+        return outputFilename;
+    }
 
-const std::string &CmdParsedData::getOutputFilename() const {
-    return outputFilename;
-}
+    void CmdParsedData::setOutputFilename(const std::string &outputFilename) {
+        this->outputFilename = outputFilename;
+    }
 
-void CmdParsedData::setOutputFilename(const std::string &outputFilename) {
-    this->outputFilename = outputFilename;
-}
+    int CmdParsedData::getIterations() const {
+        return iterations;
+    }
 
-int CmdParsedData::getIterations() const {
-    return iterations;
-}
-
-void CmdParsedData::setIterations(int iterations) {
-    CmdParsedData::iterations = iterations;
+    void CmdParsedData::setIterations(int iterations) {
+        CmdParsedData::iterations = iterations;
+    }
 }

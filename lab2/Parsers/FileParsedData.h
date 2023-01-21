@@ -11,39 +11,42 @@
 #include <map>
 #include <set>
 
-class FileParsedData {
-private:
-    std::map<std::pair<int, int>, int> field;
-    std::set<int> surviveRule;
-    std::set<int> birthRule;
-    std::string universeName;
-    std::pair<int, int> size = {-1, -1};
-public:
-    FileParsedData();
+namespace GameOfLife {
 
-    FileParsedData(const std::map<std::pair<int, int>, int> &field, const std::set<int> &surviveRule,
-                   const std::set<int> &birthRule, const std::string &universeName, const std::pair<int, int> &size);
+    class FileParsedData {
+    private:
+        std::map<std::pair<int, int>, int> field;
+        std::set<int> surviveRule;
+        std::set<int> birthRule;
+        std::string universeName;
+        std::pair<int, int> size = {-1, -1};
+    public:
+        FileParsedData();
 
-    const std::map<std::pair<int, int>, int> &getField() const;
+        FileParsedData(const std::map<std::pair<int, int>, int> &field, const std::set<int> &surviveRule,
+                       const std::set<int> &birthRule, const std::string &universeName,
+                       const std::pair<int, int> &size);
 
-    void setField(const std::map<std::pair<int, int>, int> &field);
+        const std::map<std::pair<int, int>, int> &getField() const;
 
-    const std::set<int> &getSurviveRule() const;
+        void setField(const std::map<std::pair<int, int>, int> &field);
 
-    void setSurviveRule(const std::set<int> &surviveRule);
+        const std::set<int> &getSurviveRule() const;
 
-    const std::set<int> &getBirthRule() const;
+        void setSurviveRule(const std::set<int> &surviveRule);
 
-    void setBirthRule(const std::set<int> &birthRule);
+        const std::set<int> &getBirthRule() const;
 
-    const std::string &getUniverseName() const;
+        void setBirthRule(const std::set<int> &birthRule);
 
-    void setUniverseName(const std::string &universeName);
+        const std::string &getUniverseName() const;
 
-    const std::pair<int, int> &getSize() const;
+        void setUniverseName(const std::string &universeName);
 
-    void setSize(const std::pair<int, int> &size);
-};
+        const std::pair<int, int> &getSize() const;
 
+        void setSize(const std::pair<int, int> &size);
+    };
 
+}
 #endif //LIFE_FILEPARSEDDATA_H

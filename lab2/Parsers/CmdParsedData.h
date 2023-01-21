@@ -5,26 +5,26 @@
 #ifndef LIFE_CMDPARSEDDATA_H
 #define LIFE_CMDPARSEDDATA_H
 #include "fstream"
+namespace GameOfLife {
+    class CmdParsedData {
+    public:
+        const std::string &getInputFilename() const;
 
-class CmdParsedData {
-public:
-    const std::string &getInputFilename() const;
+        void setInputFilename(const std::string &inputFilename);
 
-    void setInputFilename(const std::string &inputFilename);
+        const std::string &getOutputFilename() const;
 
-    const std::string &getOutputFilename() const;
+        void setOutputFilename(const std::string &outputFilename);
 
-    void setOutputFilename(const std::string &outputFilename);
+        int getIterations() const;
 
-    int getIterations() const;
+        void setIterations(int iterations);
 
-    void setIterations(int iterations);
+    private:
+        std::string inputFilename;
+        std::string outputFilename;
+        int iterations = 0;
+    };
 
-private:
-    std::string inputFilename;
-    std::string outputFilename;
-    int iterations = 0;
-};
-
-
+}
 #endif //LIFE_CMDPARSEDDATA_H
