@@ -1,5 +1,5 @@
 #include <iostream>
-#include "CommandLineParser.h"
+#include "Parsers/CommandLineParser.h"
 #include "GameInterface.h"
 
 int main(int argc, char* argv[]) {

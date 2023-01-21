@@ -5,7 +5,9 @@
 #ifndef LIFE_OFFLINEGAMEMODE_H
 #define LIFE_OFFLINEGAMEMODE_H
 
-#include "Game.h"
+#include "../Game.h"
+
+static const std::string kDone = "done!\n";
 
 class OfflineGameMode: Game {
 public:

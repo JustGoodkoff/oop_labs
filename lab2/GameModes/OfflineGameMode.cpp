@@ -2,6 +2,7 @@
 // Created by 79631 on 18.01.2023.
 //
 
+#include <iostream>
 #include "OfflineGameMode.h"
 
 void OfflineGameMode::startOfflineMode(Universe *universe) {
@@ -9,4 +10,5 @@ void OfflineGameMode::startOfflineMode(Universe *universe) {
         nextStep(universe);
     }
     dump(universe);
+    std::cout << kDone;
 }

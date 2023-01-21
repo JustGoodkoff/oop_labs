@@ -16,27 +16,27 @@ void FileParsedData::setField(const std::map<std::pair<int, int>, int> &field) {
 }
 
 const std::set<int> &FileParsedData::getSurviveRule() const {
-    return survive_rule;
+    return surviveRule;
 }
 
 void FileParsedData::setSurviveRule(const std::set<int> &surviveRule) {
-    survive_rule = surviveRule;
+    this->surviveRule = surviveRule;
 }
 
 const std::set<int> &FileParsedData::getBirthRule() const {
-    return birth_rule;
+    return birthRule;
 }
 
 void FileParsedData::setBirthRule(const std::set<int> &birthRule) {
-    birth_rule = birthRule;
+    this->birthRule = birthRule;
 }
 
 const std::string &FileParsedData::getUniverseName() const {
-    return universe_name;
+    return universeName;
 }
 
 void FileParsedData::setUniverseName(const std::string &universeName) {
-    universe_name = universeName;
+    this->universeName = universeName;
 }
 
 const std::pair<int, int> &FileParsedData::getSize() const {

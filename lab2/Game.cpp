@@ -26,14 +26,14 @@ int Game::getCountOfNearAliveCells(Universe universe, std::pair<int, int> pos) {
     std::map<std::pair<int, int>, int> new_field;
     for(int i = 0; i < universe->getSize().first; i++) {
         for(int j = 0; j < universe->getSize().second; j++) {
-            if (universe->getField()[std::make_pair(i, j)] == 0) {
+            if (universe->getField()[std::make_pair(i, j)] == kDeadCell) {
                 if (universe->getBirthRule().find(getCountOfNearAliveCells(*universe, std::make_pair(i, j))) != universe->getBirthRule().end()) {
-                    new_field[std::make_pair(i, j)] = 1;
+                    new_field[std::make_pair(i, j)] = kAliveCell;
                 }
             }
             else {
                 if (universe->getSurviveRule().find(getCountOfNearAliveCells(*universe, std::make_pair(i, j))) != universe->getSurviveRule().end()) {
-                    new_field[std::make_pair(i, j)] = 1;
+                    new_field[std::make_pair(i, j)] = kAliveCell;
                 }
             }
         }
@@ -45,22 +45,26 @@ int Game::getCountOfNearAliveCells(Universe universe, std::pair<int, int> pos) {
 void Game::dump(Universe *universe) {
     std::ofstream outputFile;
     outputFile.open(universe->getOutputFilename());
+    if (!outputFile.is_open()) {
+        outputFile.open(kDefaultOutFilename);
+    }
     if(outputFile.is_open()) {
         outputFile.clear();
-        outputFile << "#Life 1.06\n";
-        outputFile << "#N " << universe->getUniverseName() << "\n";
-        outputFile << "#R B";
+        outputFile << kLifeVersion << "\n";
+        outputFile << kName << universe->getUniverseName() << "\n";
+        outputFile << kRule << kBirthRule;
         for(int i : universe->getBirthRule()) {
             outputFile << i;
         }
-        outputFile << "/S";
+        outputFile << kSurviveRule;
         for (int i : universe->getSurviveRule()) {
             outputFile << i;
         }
         outputFile << "\n";
-        for(int i = 0; i < universe->getField().size(); i++) {
-            for (int j = 0; j < universe->getField().size(); j ++) {
-                if (universe->getField()[std::make_pair(i, j)] == 1) {
+        outputFile << kSize << universe->getSize().first <<  kSpace << universe->getSize().second << "\n";
+        for(int i = 0; i < universe->getSize().first; i++) {
+            for (int j = 0; j < universe->getSize().second; j ++) {
+                if (universe->getField()[std::make_pair(i, j)] == kAliveCell) {
                     outputFile << i << " " << j << "\n";
                 }
             }

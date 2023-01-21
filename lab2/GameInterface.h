@@ -8,14 +8,20 @@
 
 #include "Universe.h"
 
+static const std::string kOfflineMode = "offline";
+static const std::string kOnlineMode = "online";
+static const std::string kChooseMode = "Choose mode (online/offline)";
+static const std::string kAliveCellOut = "0 ";
+static const std::string kDeadCellOut = ". ";
+
 class GameInterface {
-    static const int kOFFLINE_MODE = 0;
-    static const int kONLINE_MODE = 1;
+
 public:
     GameInterface();
     static void startGame(int argc, char** argv);
     static void print_universe(Universe universe);
 
+private:
     static std::string chooseGameMode();
 };
 

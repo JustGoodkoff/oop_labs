@@ -14,10 +14,9 @@
 class FileParsedData {
 private:
     std::map<std::pair<int, int>, int> field;
-//    std::vector<int> field;
-    std::set<int> survive_rule;
-    std::set<int> birth_rule;
-    std::string universe_name;
+    std::set<int> surviveRule;
+    std::set<int> birthRule;
+    std::string universeName;
     std::pair<int, int> size = {-1, -1};
 public:
     FileParsedData();

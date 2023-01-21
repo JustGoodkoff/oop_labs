@@ -3,18 +3,16 @@
 //
 
 #include <iostream>
-#include <cstring>
 #include "GameInterface.h"
-#include "CommandLineParser.h"
+#include "Parsers/CommandLineParser.h"
 #include "Game.h"
-#include "fstream"
-#include "Universe.h"
-#include "InputFileParser.h"
-#include "OnlineGameMode.h"
-#include "OfflineGameMode.h"
+#include "Parsers/InputFileParser.h"
+#include "GameModes/OnlineGameMode.h"
+#include "GameModes/OfflineGameMode.h"
+
 
 void GameInterface::startGame(int argc, char **argv) {
-    std::string game_mode = GameInterface::chooseGameMode();
+    std::string gameMode = GameInterface::chooseGameMode();
     CommandLineParser commandLineParser = CommandLineParser(argc, argv);
     CmdParsedData data = commandLineParser.parseData();
     InputFileParser inputFileParser = InputFileParser(data.getInputFilename());
@@ -31,9 +29,9 @@ void GameInterface::startGame(int argc, char **argv) {
     universe.setInputFilename(data.getInputFilename());
 
 
-    if (game_mode == "online") {
+    if (gameMode == kOnlineMode) {
         OnlineGameMode::startOnlineGame(&universe);
-    } else if (game_mode == "offline") {
+    } else if (gameMode == kOfflineMode) {
         OfflineGameMode::startOfflineMode(&universe);
     }
     GameInterface::print_universe(universe);
@@ -43,7 +41,11 @@ void GameInterface::startGame(int argc, char **argv) {
 void GameInterface::print_universe(Universe universe) {
     for (int i = 0; i < universe.getSize().first; i++) {
         for (int j = 0; j < universe.getSize().second; j++) {
-            std::cout << universe.getField()[std::make_pair(i, j)] << " ";
+            if (universe.getField()[std::make_pair(i, j)]) {
+                std::cout << kAliveCellOut;
+            } else {
+                std::cout << kDeadCellOut;
+            }
         }
         std::cout << "\n";
     }
@@ -51,11 +53,11 @@ void GameInterface::print_universe(Universe universe) {
 
 
 std::string GameInterface::chooseGameMode() {
-    std::string game_mode;
-    while (game_mode != "online" && game_mode != "offline") {
-        std::cout << "Vvedit rezhim (online/offline)" << std::endl;
-        std::cin >> game_mode;
+    std::string gameMode;
+    while (gameMode != kOnlineMode && gameMode != kOfflineMode) {
+        std::cout << kChooseMode << std::endl;
+        std::cin >> gameMode;
     }
-    return game_mode;
+    return gameMode;
 }
 

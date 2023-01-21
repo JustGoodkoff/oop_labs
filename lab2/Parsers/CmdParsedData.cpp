@@ -6,19 +6,19 @@
 
 
 const std::string &CmdParsedData::getInputFilename() const {
-    return input_filename;
+    return inputFilename;
 }
 
 void CmdParsedData::setInputFilename(const std::string &inputFilename) {
-    input_filename = inputFilename;
+    this->inputFilename = inputFilename;
 }
 
 const std::string &CmdParsedData::getOutputFilename() const {
-    return output_filename;
+    return outputFilename;
 }
 
 void CmdParsedData::setOutputFilename(const std::string &outputFilename) {
-    output_filename = outputFilename;
+    this->outputFilename = outputFilename;
 }
 
 int CmdParsedData::getIterations() const {

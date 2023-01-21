@@ -21,8 +21,8 @@ public:
     void setIterations(int iterations);
 
 private:
-    std::string input_filename;
-    std::string output_filename;
+    std::string inputFilename;
+    std::string outputFilename;
     int iterations = 0;
 };
 
